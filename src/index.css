@@ -1,0 +1,79 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    background-color: black;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: 'Helvetica Neue', 'Acumin Pro', sans-serif;
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;  /* Firefox */
+    max-width: 1920px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: black;
+  }
+
+  @screen md {
+    body {
+      @apply overflow-auto;
+    }
+  }
+
+  @screen sm {
+    body {
+      @apply pb-16;
+    }
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-white hover:text-white/80 transition-colors;
+  }
+  
+  .product-card {
+    @apply relative bg-white p-4;
+  }
+  
+  .product-card img {
+    @apply w-full h-auto object-cover transition-transform duration-300;
+  }
+  
+  .product-card:hover img {
+    @apply scale-105;
+  }
+  
+  .wishlist-button {
+    @apply absolute top-4 right-4 p-2 opacity-0 group-hover:opacity-100 transition-opacity;
+  }
+
+  .search-input {
+    @apply w-full px-6 py-3 bg-white rounded-[5px] text-sm placeholder:text-gray-400 focus:outline-none border border-[#E5E5E5];
+  }
+
+  .main-button {
+    @apply px-8 py-2.5 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300 text-sm;
+  }
+
+  .header-icon {
+    @apply w-6 h-6 text-white hover:text-white/80 transition-colors cursor-pointer;
+  }
+
+  .cart-counter {
+    @apply absolute -top-1.5 -right-1.5 w-4 h-4 bg-white text-black text-[10px] rounded-full flex items-center justify-center font-medium;
+  }
+
+  .nav-container {
+    @apply container mx-auto px-4 flex items-center justify-center py-6 max-w-[1920px];
+  }
+}
